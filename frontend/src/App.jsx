@@ -25,7 +25,7 @@ const App = () => {
   if (isLoading) return <PageLoader />;
 
   return (
-    <div className="h-screen" data-theme={theme}>
+    <div className="h-screen" data-theme={theme}>  
       <Routes>
         <Route
           path="/"
@@ -33,7 +33,7 @@ const App = () => {
             isAuthenticated && isOnboarded ? (
               <Layout showSidebar={true}>
                 <HomePage />
-              </Layout>
+              </Layout> 
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )

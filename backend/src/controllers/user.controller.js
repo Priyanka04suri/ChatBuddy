@@ -83,7 +83,7 @@ export async function acceptFriendRequest(req, res) {
   try {
     const { id: requestId } = req.params;
 
-    const friendRequest = await FriendRequest.findById(requestId);
+    const friendRequest = await FriendRequest.findById(requestId);  
 
     if (!friendRequest) {
       return res.status(404).json({ message: "Friend request not found" });
@@ -96,7 +96,7 @@ export async function acceptFriendRequest(req, res) {
 
     friendRequest.status = "accepted";
     await friendRequest.save();
-
+  
     // add each user to the other's friends array
     // $addToSet: adds elements to an array only if they do not already exist.
     await User.findByIdAndUpdate(friendRequest.sender, {
@@ -146,3 +146,4 @@ export async function getOutgoingFriendReqs(req, res) {
     res.status(500).json({ message: "Internal Server Error" });
   }
 }
+ 
