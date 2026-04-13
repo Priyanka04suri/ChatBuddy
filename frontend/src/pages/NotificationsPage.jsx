@@ -53,6 +53,9 @@ const NotificationsPage = () => {
                             <div className="avatar w-14 h-14 rounded-full bg-base-300">
                               <img src={request.sender.profilePic} alt={request.sender.fullName} />
                             </div>
+                            <div>
+                            <h3 className="font-semibold">{request.sender.fullName}</h3>
+                            </div>
                           </div>
 
                           <button
